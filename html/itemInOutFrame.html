@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/font-icons.css">
+		<script src="../js/Frameworks/iuapmobile.frameworks.core.js" ></script>
+		<script src="../js/summer.js" ></script>
+		<script src="../js/jquery-2.1.4.min.js" ></script>
+		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script src="../js/itemInOutFrame.js" ></script>
+	</head>
+	<body>
+		<div class="um-page" id="main">
+
+			<div id="content" class="um-content p15">
+				<div style="text-align:center;margfont-weight:bold;">
+					<div class="um-input-group">
+						<label for="itemInOut">大宗物资进出厂门数：</label>
+						<input type="text" class="form-control" id="itemInOut">
+					</div>
+					<div class="um-input-group">
+						<label for="meterRoomCount">计量室数量：</label>
+						<input type="text" class="form-control" id="meterRoomCount">
+					</div>
+					<div class="um-input-group">
+						<label for="weightCount">计量衡器数量：</label>
+						<input type="text" class="form-control" id="weightCount">
+					</div>
+				</div>
+			</div>
+			
+			<div class="um-footer">
+				<div class="btn-group btn-group-justify">
+					<button type="button" class="btn" onclick="pre()">
+						上一步
+					</button>
+					<button type="button" class="btn" onclick="next()">
+						下一步
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>	
+</html>
