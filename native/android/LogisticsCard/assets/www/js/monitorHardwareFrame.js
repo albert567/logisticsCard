@@ -1,9 +1,10 @@
-﻿summerready = function() {
-	
+﻿var checkboxs = [];
+summerready = function() {
+	checkboxs = $(".um-check-group").find("input:checkbox");
 	if (!!(localStorage.getItem("monitorHardware"))) {
 		var monitorHardware = localStorage.getItem("monitorHardware");
-		$.each($(".um-check-group").find("input:checkbox"), function() {
-			if (monitorHardware.indexOf($(this).val()) > 0) {
+		$.each(checkboxs, function() {
+			if (monitorHardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
 			}
 		});
@@ -12,7 +13,7 @@
 function saveInfo() {
 	var arr = [];
 	$summer.byId("ck_b").checked = true;
-	$.each($(".um-check-group").find("input:checkbox"), function() {
+	$.each(checkboxs, function() {
 		if (this.checked) {
 			arr.push($(this).val());
 		}

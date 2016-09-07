@@ -5,7 +5,7 @@
 	if (!!(localStorage.getItem("dischargeHardware"))) {
 		var dischargeHardware = localStorage.getItem("dischargeHardware");
 		$.each($(".um-check-group").find("input:checkbox"), function() {
-			if (dischargeHardware.indexOf($(this).val()) > 0) {
+			if (dischargeHardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
 			}
 		});

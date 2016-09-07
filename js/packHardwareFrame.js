@@ -1,11 +1,13 @@
-﻿summerready = function() {
+﻿var checkboxs = [];
+summerready = function() {
+	checkboxs = $(".um-check-group").find("input:checkbox");
 	if (!!(localStorage.getItem("packCount"))) {
 		$summer.byId("packCount").value = localStorage.getItem("packCount");
 	}
 	if (!!(localStorage.getItem("packHardware"))) {
 		var packHardware = localStorage.getItem("packHardware");
-		$.each($(".um-check-group").find("input:checkbox"), function() {
-			if (packHardware.indexOf($(this).val()) > 0) {
+		$.each(checkboxs, function() {
+			if (packHardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
 			}
 		});
@@ -13,7 +15,7 @@
 }
 function saveInfo() {
 	var arr = [];
-	$.each($(".um-check-group").find("input:checkbox"), function() {
+	$.each(checkboxs, function() {
 		if (this.checked) {
 			arr.push($(this).val());
 		}

@@ -1,5 +1,7 @@
-﻿summerready = function() {
-	$(".um-check-group").find("input:checkbox").on("change", function() {
+﻿var checkboxs = [];
+summerready = function() {
+	checkboxs = $(".um-check-group").find("input:checkbox");
+	checkboxs.on("change", function() {
 		if (this.checked) {
 			alert(this.id + "被选中");
 			if (this.id == "ck_a") {
@@ -18,8 +20,8 @@
 	}
 	if (!!(localStorage.getItem("encrypHardware"))) {
 		var encrypHardware = localStorage.getItem("encrypHardware");
-		$.each($(".um-check-group").find("input:checkbox"), function() {
-			if (encrypHardware.indexOf($(this).val()) > 0) {
+		$.each(checkboxs, function() {
+			if (encrypHardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
 			}
 		});
@@ -28,7 +30,7 @@
 }
 function saveInfo() {
 	var arr = [];
-	$.each($(".um-check-group").find("input:checkbox"), function() {
+	$.each(checkboxs, function() {
 		if (this.checked) {
 			arr.push($(this).val());
 		}

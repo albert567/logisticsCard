@@ -1,13 +1,24 @@
-﻿summerready = function() {
+﻿var itemInOut = 2;
+var doorCount = 1;
+var doors = [];
+var checkboxs = [];
+
+summerready = function() {
+	checkboxs = $(".um-check-group").find("input:checkbox");
+	if (!!(localStorage.getItem("itemInOut"))) {
+		itemInOut = localStorage.getItem("itemInOut");
+	} else {
+		alert("请输入门岗数");
+	}
+	$summer.byId("lb_door").innerHTML = "岗位：" + doorCount + "/" + itemInOut + "门岗";
 	if (!!(localStorage.getItem("doorHardware"))) {
-		var doorHardware = localStorage.getItem("doorHardware");
-		$.each($(".um-check-group").find("input:checkbox"), function() {
-			if (doorHardware.indexOf($(this).val()) > 0) {
+		doors = JSON.parse(localStorage.getItem("doorHardware"));
+		$.each(checkboxs, function() {
+			if (doors[0].indexOf($(this).val()) != -1) {
 				this.checked = true;
 			}
 		});
 	} else {
-		alert("isNoduty=" + localStorage.getItem("isNoduty"));
 		if (localStorage.getItem("isNoduty") == "false") {
 			$summer.byId("ck_a").checked = true;
 			$summer.byId("ck_b").checked = true;
@@ -16,25 +27,66 @@
 }
 function saveInfo() {
 	var arr = [];
-	$.each($(".um-check-group").find("input:checkbox"), function() {
+	$.each(checkboxs, function() {
 		if (this.checked) {
 			arr.push($(this).val());
 		}
 	});
-	localStorage.setItem("doorHardware", arr.toString());
 
+	doors[doorCount - 1] = arr.toString();
 }
 
 //上一步
 function pre() {
-	summer.closeWin("doorHardware");
+	doorCount--;
+	if (doorCount < 1) {
+		summer.closeWin("doorHardware");
+	} else {
+		$summer.byId("lb_door").innerHTML = "岗位：" + doorCount + "/" + itemInOut + "门岗";
+		var hardware = doors[doorCount - 1];
+		$.each(checkboxs, function() {
+			if (hardware.indexOf($(this).val()) != -1) {
+				this.checked = true;
+			}else{
+				this.checked = false;
+			}
+		});
+	}
+
 }
 
 //下一步
 function next() {
 	saveInfo();
-	summer.openWin({
-		id : 'meterHardware',
-		url : 'html/meterHardware.html',
-	});
+	doorCount++;
+	if (doorCount <= itemInOut) {
+		$summer.byId("lb_door").innerHTML = "岗位：" + doorCount + "/" + itemInOut + "门岗";
+		if (doorCount <= doors.length) {
+			$.each(checkboxs, function() {
+				if (doors[doorCount - 1].indexOf($(this).val()) != -1) {
+					this.checked = true;
+				}else{
+					this.checked = false;
+				}
+			});
+		} else {
+			if (localStorage.getItem("isNoduty") == "false") {
+				$summer.byId("ck_a").checked = true;
+				$summer.byId("ck_b").checked = true;
+			} else {
+				$summer.byId("ck_a").checked = false;
+				$summer.byId("ck_b").checked = false;
+			}
+			$summer.byId("ck_c").checked = false;
+			$summer.byId("ck_d").checked = false;
+		}
+
+	} else {
+		localStorage.setItem("doorHardware", JSON.stringify(doors));
+		summer.openWin({
+			id : 'meterHardware',
+			url : 'html/meterHardware.html',
+		});
+	}
+
 }

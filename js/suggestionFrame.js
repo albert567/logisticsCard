@@ -1,22 +1,24 @@
-﻿summerready = function() {
+﻿var checkboxs = [];
 
+summerready = function() {
+	checkboxs = $(".um-check-group").find("input:radio");
 	//配置建议
 	if (!!(localStorage.getItem("suggestion"))) {
 		var suggestion = localStorage.getItem("suggestion");
-		$.each($(".um-check-group").find("input:radio"), function() {
+		$.each(checkboxs, function() {
 			if (suggestion == $(this).val())
 				this.checked = true;
 		})
 	}
 }
 function saveInfo() {
-	$.each($(".um-check-group").find("input:radio"), function() {
+	$.each(checkboxs, function() {
 		if (this.checked) {
 			var value = $(this).val();
 			alert("您选择的是：" + value);
 			//配置建议
 			localStorage.setItem("suggestion", value);
-			if (value.indexOf("E") > 0) {
+			if (value.indexOf("E") != -1) {
 				alert("进入到具体的硬件选择");
 			} else {
 				alert("直接生成动画和报价");

@@ -37,6 +37,7 @@ function pre(){
 }
 //下一步
 function next(){
+	saveInfo();
 	summer.openWin({
 		id : 'suggestion',
 		url : 'html/suggestion.html',
