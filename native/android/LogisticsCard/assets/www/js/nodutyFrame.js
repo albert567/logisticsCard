@@ -17,10 +17,6 @@
 	if (!!(localStorage.getItem("gate"))) {
 		$summer.byId("gate").value = localStorage.getItem("gate");
 	}
-	//地磅房/班
-	if (!!(localStorage.getItem("loadMeter"))) {
-		$summer.byId("loadMeter").value = localStorage.getItem("loadMeter");
-	}
 	//计量室/班
 	if (!!(localStorage.getItem("meter"))) {
 		$summer.byId("meter").value = localStorage.getItem("meter");
@@ -39,8 +35,6 @@ function saveInfo() {
 	var ticket = $summer.byId("ticket");
 	//门岗/班
 	var gate = $summer.byId("gate");
-	//地磅房/班
-	var loadMeter = $summer.byId("loadMeter");
 	//计量室/班
 	var meter = $summer.byId("meter");
 	//成品库/班
@@ -50,18 +44,16 @@ function saveInfo() {
 	localStorage.setItem("isNoduty", isNoduty.checked);
 	localStorage.setItem("ticket", ticket.value);
 	localStorage.setItem("gate", gate.value);
-	localStorage.setItem("loadMeter", loadMeter.value);
 	localStorage.setItem("meter", meter.value);
 	localStorage.setItem("product", product.value);
 
 
-	alert("factory=" + localStorage.getItem("factory"));
+	/*alert("factory=" + localStorage.getItem("factory"));
 	alert("isNoduty=" + localStorage.getItem("isNoduty"));
 	alert("ticket=" + localStorage.getItem("ticket"));
 	alert("gate=" + localStorage.getItem("gate"));
-	alert("loadMeter=" + localStorage.getItem("loadMeter"));
 	alert("meter=" + localStorage.getItem("meter"));
-	alert("product=" + localStorage.getItem("product"));
+	alert("product=" + localStorage.getItem("product"));*/
 	
 }
 

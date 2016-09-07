@@ -38,7 +38,7 @@ function pre(){
 //下一步
 function next(){
 	summer.openWin({
-		id : 'gateUses',
-		url : 'html/gateUses.html',
+		id : 'suggestion',
+		url : 'html/suggestion.html',
 	});
 }

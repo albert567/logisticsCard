@@ -15,26 +15,31 @@
 	<body>
 		<div class="um-page" id="main">
 
-			<div id="content" class="um-content p15">
+			<div id="content" class="um-content p15 um-box-center mr30 ml30">
 				<div style="text-align:center;margfont-weight:bold;">
 					<div class="um-input-group">
-					    <span class="btn ti-user"></span>
-					    <input id="email" type="email" required="required" class="form-control" placeholder="请输入用友邮箱">
-					    <span class="um-input-clear ti-close"></span>
+						<span class="btn ti-user"></span>
+						<input id="email" type="email" required="required" class="form-control" placeholder="请输入用友邮箱">
+						<span class="um-input-clear ti-close"></span>
 					</div>
-					
+
 					<div class="um-input-group">
-					    <span class="btn ti-lock"></span>
-					    <input type="password" class="form-control" required="required" placeholder="请输入密码">
-					    <span class="um-input-clear ti-close"></span>
+						<span class="btn ti-lock"></span>
+						<input type="password" class="form-control" required="required" placeholder="请输入密码">
+						<span class="um-input-clear ti-close"></span>
 					</div>
-				</div>
-				<div class="btn-group btn-group-justify">
-					<button type="button" class="btn btn-inline" onclick="login()">登  录</button>
-					<button type="button" class="btn btn-inline" onclick="logout()">退 出</button>
+
+					<div class="btn-group btn-group-justify mt20">
+						<button type="button" class="btn btn-inline mr30" onclick="login()">
+							登  录
+						</button>
+						<button type="button" class="btn btn-inline" onclick="logout()">
+							退 出
+						</button>
+					</div>
 				</div>
 
 			</div>
 		</div>
-	</body>	
+	</body>
 </html>
