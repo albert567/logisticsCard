@@ -15,6 +15,7 @@ function pre() {
 function next() {
 	saveInfo();
 	localStorage.clear();
+	alert("数据保存");
 	alert("localStorage已被清空");
 	summer.openWin({
 		id : 'industry',
@@ -41,4 +42,8 @@ function animPreview(){
 //报价预览
 function pricePreview(){
 	alert("报价预览");
+	summer.openWin({
+		id : 'pricePreview',
+		url : 'html/pricePreview.html',
+	});
 }

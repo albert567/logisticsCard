@@ -2,6 +2,9 @@
 	if(!!(localStorage.getItem("dischargeCount"))){
 		$summer.byId("dischargeCount").value = localStorage.getItem("dischargeCount");
 	}
+	if(!!(localStorage.getItem("packCount"))){
+		$summer.byId("packCount").value = localStorage.getItem("packCount");
+	}
 	if (!!(localStorage.getItem("dischargeHardware"))) {
 		var dischargeHardware = localStorage.getItem("dischargeHardware");
 		$.each($(".um-check-group").find("input:checkbox"), function() {
@@ -20,6 +23,7 @@ function saveInfo() {
 	});
 	localStorage.setItem("dischargeHardware", arr.toString());
 	localStorage.setItem("dischargeCount", $summer.byId("dischargeCount").value);
+	localStorage.setItem("packCount", $summer.byId("packCount").value);
 }
 
 //上一步

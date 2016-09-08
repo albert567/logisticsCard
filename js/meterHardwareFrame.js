@@ -42,7 +42,8 @@ function saveInfo() {
 
 //上一步
 function pre() {
-	index --;
+	saveInfo();
+	index--;
 	if (index < 1) {
 		summer.closeWin("meterHardware");
 	} else {
@@ -51,12 +52,12 @@ function pre() {
 		$.each(checkboxs, function() {
 			if (hardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
-			}else{
+			} else {
 				this.checked = false;
 			}
 		});
 	}
-	
+
 }
 
 //下一步
@@ -69,7 +70,7 @@ function next() {
 			$.each(checkboxs, function() {
 				if (weights[index - 1].indexOf($(this).val()) != -1) {
 					this.checked = true;
-				}else{
+				} else {
 					this.checked = false;
 				}
 			});
@@ -80,19 +81,19 @@ function next() {
 		}
 
 	} else {
+		index --;
 		localStorage.setItem("meterHardware", JSON.stringify(weights));
 		if (localStorage.getItem("isNoduty") == "true") {
-		summer.openWin({
-			id : 'monitorHardware',
-			url : 'html/monitorHardware.html',
-		});
-	} else {
-		summer.openWin({
-			id : 'dischargeHardware',
-			url : 'html/dischargeHardware.html',
-		});
+			summer.openWin({
+				id : 'monitorHardware',
+				url : 'html/monitorHardware.html',
+			});
+		} else {
+			summer.openWin({
+				id : 'dischargeHardware',
+				url : 'html/dischargeHardware.html',
+			});
+		}
 	}
-	}
-	
 
 }

@@ -36,7 +36,7 @@
         <activity
             android:name="com.yyuap.summer.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
-            android:screenOrientation="unspecified"
+            android:screenOrientation="portrait"
             android:label="@string/appname"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:windowSoftInputMode="stateHidden">

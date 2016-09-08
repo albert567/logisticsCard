@@ -25,9 +25,9 @@ function saveInfo() {
 	localStorage.setItem("meterRoomCount", meterRoomCount.value);
 	localStorage.setItem("weightCount", weightCount.value);
 
-	alert("itemInOut="+localStorage.getItem("itemInOut"));
+	/*alert("itemInOut="+localStorage.getItem("itemInOut"));
 	alert("meterRoomCount="+localStorage.getItem("meterRoomCount"));
-	alert("weightCount="+localStorage.getItem("weightCount"));
+	alert("weightCount="+localStorage.getItem("weightCount"));*/
 	 
 }
 

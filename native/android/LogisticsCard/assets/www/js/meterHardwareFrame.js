@@ -3,18 +3,15 @@ var index = 1;
 var weights = [];
 var checkboxs = [];
 summerready = function() {
-	alert("summerready");
 	if (!!(localStorage.getItem("weightCount"))) {
 		weightCount = localStorage.getItem("weightCount");
 	} else {
 		alert("请输入计量衡器数目");
 	}
-	alert("weightCount = "+weightCount);
 	$summer.byId("lb_weight").innerHTML = "岗位：" + index + "/" + weightCount + "计量衡器";
 	checkboxs = $(".um-check-group").find("input:checkbox");
 	checkboxs.on("change", function() {
 		if (this.checked) {
-			alert(this.id + "被选中");
 			if (this.id == "ck_a") {
 				$summer.byId("ck_b").checked = false;
 				$summer.byId("ck_c").checked = false;
@@ -45,7 +42,8 @@ function saveInfo() {
 
 //上一步
 function pre() {
-	index --;
+	saveInfo();
+	index--;
 	if (index < 1) {
 		summer.closeWin("meterHardware");
 	} else {
@@ -54,12 +52,12 @@ function pre() {
 		$.each(checkboxs, function() {
 			if (hardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
-			}else{
+			} else {
 				this.checked = false;
 			}
 		});
 	}
-	
+
 }
 
 //下一步
@@ -72,7 +70,7 @@ function next() {
 			$.each(checkboxs, function() {
 				if (weights[index - 1].indexOf($(this).val()) != -1) {
 					this.checked = true;
-				}else{
+				} else {
 					this.checked = false;
 				}
 			});
@@ -83,19 +81,19 @@ function next() {
 		}
 
 	} else {
+		index --;
 		localStorage.setItem("meterHardware", JSON.stringify(weights));
 		if (localStorage.getItem("isNoduty") == "true") {
-		summer.openWin({
-			id : 'monitorHardware',
-			url : 'html/monitorHardware.html',
-		});
-	} else {
-		summer.openWin({
-			id : 'dischargeHardware',
-			url : 'html/dischargeHardware.html',
-		});
+			summer.openWin({
+				id : 'monitorHardware',
+				url : 'html/monitorHardware.html',
+			});
+		} else {
+			summer.openWin({
+				id : 'dischargeHardware',
+				url : 'html/dischargeHardware.html',
+			});
+		}
 	}
-	}
-	
 
 }

@@ -38,6 +38,7 @@ function saveInfo() {
 
 //上一步
 function pre() {
+	saveInfo();
 	doorCount--;
 	if (doorCount < 1) {
 		summer.closeWin("doorHardware");
@@ -47,7 +48,7 @@ function pre() {
 		$.each(checkboxs, function() {
 			if (hardware.indexOf($(this).val()) != -1) {
 				this.checked = true;
-			}else{
+			} else {
 				this.checked = false;
 			}
 		});
@@ -65,7 +66,7 @@ function next() {
 			$.each(checkboxs, function() {
 				if (doors[doorCount - 1].indexOf($(this).val()) != -1) {
 					this.checked = true;
-				}else{
+				} else {
 					this.checked = false;
 				}
 			});
@@ -82,6 +83,7 @@ function next() {
 		}
 
 	} else {
+		doorCount--;
 		localStorage.setItem("doorHardware", JSON.stringify(doors));
 		summer.openWin({
 			id : 'meterHardware',
