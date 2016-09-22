@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/font-icons.css">
+		<script src="../js/Frameworks/iuapmobile.frameworks.core.js" ></script>
+		<script src="../js/summer.js" ></script>
+		<script src="../js/jquery-2.1.4.min.js" ></script>
+		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script src="../js/subMenu.js" ></script>
+	</head>
+	<body>
+		<div class="um-page" id="main">
+			<div id="header" class="um-header">
+			</div>
+			<div id="content" class="um-content p15 m20">
+				<div class="um-box">
+					<button type="button" class="btn" onclick="info()">
+						基本信息维护
+					</button>
+					<div class="btn-group">
+						<button type="button" class="btn btn-inline" onclick="simple()">
+							A:计量一卡通（简单）
+						</button>
+						<button type="button" class="btn btn-inline" onclick="common()">
+							B:无人值守（一般）
+						</button>
+						<button type="button" class="btn btn-inline" onclick="intel()">
+							C:智能工厂（全面）
+						</button>
+						<button type="button" class="btn btn-inline" onclick="custom()">
+							D:自定义配置
+						</button>
+					</div>
+					<button type="button" class="btn" onclick="back()">
+						返回
+					</button>
+				</div>
+			</div>
+			<div class="um-footer"></div>
+		</div>
+	</body>
+</html>

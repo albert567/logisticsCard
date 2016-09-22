@@ -1,5 +1,0 @@
-﻿summerready = function() {
-	
-	
-}
-

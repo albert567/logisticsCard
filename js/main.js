@@ -4,6 +4,8 @@ summerready = function() {
 	$(".um-input-clear").click(function() {
 		$(this).prev("input").val("");
 	});
+	
+	
 };
 
 
@@ -17,10 +19,11 @@ function login() {
 		alert("请输入正确的邮箱");
         return false;
 	}*/
+	localStorage.setItem("email",email.value)
 	alert("登录成功");
 	summer.openWin({
-		id : 'industry',
-		url : 'html/industry.html',
+		id : 'menu',
+		url : 'html/menu.html',
 	});
 }
 

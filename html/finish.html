@@ -1,48 +1,46 @@
 <!DOCTYPE html>
-<html class="um-win">
+<html>
 	<head>
 		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" href="../css/font-icons.css">
 		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/font-icons.css">
 		<script src="../js/Frameworks/iuapmobile.frameworks.core.js" ></script>
 		<script src="../js/summer.js" ></script>
 		<script src="../js/jquery-2.1.4.min.js" ></script>
 		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
-		
+		<script src="../js/finish.js"></script>
 	</head>
 	<body>
-		<div class="um-page um-win" id="index">
+		<div class="um-page" id="main">
 			<div id="header" class="um-header">
-				<a href="#" class="um-header-left">1/32工厂价格测算</a>
 			</div>
-
-			<div id="main" class="um-content p15">
-
+			<div id="content" class="um-content p15 m20">
+				<label >请选择：</label>
+				<div style="text-align:center;margfont-weight:bold; margin-top: 20px">
+					<div class="btn-group mb30">
+						<button type="button" class="btn btn-inline mr30" onclick="animPreview()">动画预览</button>
+						<button type="button" class="btn btn-inline" onclick="pricePreview()">报价预览</button>
+					</div>
+					<div class="btn-group">
+					    <button type="button" class="btn btn-inline mr30" onclick="animDownload()">动画下载</button>
+					    <button type="button" class="btn btn-inline" onclick="priceForward()">报价转发</button>
+					</div>
+					
+				</div>
 			</div>
-
+			
 			<div class="um-footer">
-				
+				<div class="btn-group btn-group-justify">
+					<button type="button" class="btn" onclick="pre()">
+						上一步
+					</button>
+					<button type="button" class="btn" onclick="back()">
+						返回
+					</button>
+				</div>
 			</div>
 		</div>
-		<script>
-			summerready = function() {
-				var y = $summer.offset($summer.byId('header')).h;
-				var width = $summer.offset(document.getElementsByTagName("body")[0]).w;
-				var height = $summer.offset($summer.byId('main')).h;
-				summer.openFrame({
-					name : 'finishFrame',
-					url : 'html/finishFrame.html',
-					bounces : true,
-					rect : {
-						x : 0,
-						y : y,
-						w : width,
-						h : height
-					}
-				});
-			}
-		</script>
-	</body>
+	</body>	
 </html>
