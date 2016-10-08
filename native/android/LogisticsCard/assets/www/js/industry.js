@@ -1,4 +1,5 @@
-﻿summerready = function() {
+﻿var flag = false;
+summerready = function() {
 	if (!(window.localStorage)) {
 		alert("浏览器不支持localStorage");
 	}
@@ -35,6 +36,7 @@
 	}
 }
 function saveInfo() {
+
 	//行业选择
 	var industry = $summer.byId("industry");
 	//公司名称
@@ -58,7 +60,8 @@ function saveInfo() {
 	localStorage.setItem("factoryCount", factoryCount.value);
 	localStorage.setItem("isBuyReport", isBuyReport.checked);
 	if (localStorage.getItem("baseinfoid") != null) {
-		$.post("http://192.168.43.214/baseinfo/update", {
+		//更新数据到数据库
+		$.post("http://zhangyph-pc/baseinfo/update", {
 			id : localStorage.getItem("baseinfoid"),
 			industry : industry.value,
 			company : company.value,
@@ -70,12 +73,13 @@ function saveInfo() {
 		}, function(data) {
 			//alert("数据保存成功：" + data);
 			if (data == "false") {
-				alert("数据保存失败：");
+				alert("数据保存失败：" + data);
 			}
+			flag = true;
 		});
 	} else {
 		//保存数据到数据库
-		$.post("http://192.168.43.214/baseinfo/save", {
+		$.post("http://zhangyph-pc/baseinfo/save", {
 			email : localStorage.getItem("email"),
 			industry : industry.value,
 			company : company.value,
@@ -91,7 +95,7 @@ function saveInfo() {
 			} else {
 				alert("数据保存失败：");
 			}
-
+			flag = true;
 		});
 	}
 
@@ -104,11 +108,29 @@ function pre() {
 
 //下一步
 function next() {
+	//("#content").validate();
 	saveInfo();
 	summer.openWin({
 		id : 'noduty',
 		url : 'html/noduty.html',
 	});
+	/*if(flag) {
+	 summer.openWin({
+	 id : 'noduty',
+	 url : 'html/noduty.html',
+	 });
+	 }else {
+	 UM.modal("alert", {
+	 title : window.location.host || "",
+	 text : "访问网络失败",
+	 overlay : true,
+	 ok : function(data) {
+
+	 },
+	 delay : 300, //Number
+	 callback : null
+	 });
+	 }*/
 
 }
 

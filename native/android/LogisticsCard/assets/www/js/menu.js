@@ -4,7 +4,6 @@
 
 //报价
 function price(){
-	alert("进入报价界面");
 	summer.openWin({
 		id : 'subMenu',
 		url : 'html/subMenu.html',
@@ -14,17 +13,24 @@ function price(){
 
 //历史
 function history(){
-	alert("进入报价历史界面");
 	summer.openWin({
 		id : 'history',
 		url : 'html/history.html',
 	});
-	//summer.closeWin("menu");
 }
 
 //历史
 function help(){
-	alert("进入帮助界面");
+	UM.modal("alert", {
+		title : window.location.host || "",
+		text : "帮助界面还在开发中",
+		overlay : true,
+		ok : function(data) {
+			
+		},
+		delay : 300, //Number
+		callback : null
+	});
 }
 
 //退出

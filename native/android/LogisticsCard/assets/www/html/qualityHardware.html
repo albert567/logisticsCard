@@ -21,25 +21,42 @@
 				<div style="text-align:left;margfont-weight:bold;">
 					<label >岗位：质检加密</label>
 					<div class="mt20 mb20">
-					<label >硬件选择：</label>
-					<div class="um-check-group um-check-group-left">
-					    <label class="um-check-group-item">
-					        <input name="um-checkbox" id="ck_a" type="checkbox" value="A:手持加密系统">
-					        A:手持加密系统<span class="um-icon-checkbox um-css3-vc"></span>
-					    </label>
+						<label >硬件选择：</label>
+						<div class="um-check-group um-check-group-left">
+							<label class="um-check-group-item">
+								<input name="um-checkbox" id="ck_a" type="checkbox" checked="checked"
+								value="A:手持加密系统">
+								A:手持加密系统<span class="um-icon-checkbox um-css3-vc"></span> </label>
+						</div>
 					</div>
-					</div>
-					<div class="um-input-group">
-						<label for="icRwCount">IC卡读写器数量：</label>
-						<input type="text" class="form-control" id="icRwCount">
-					</div>
-					<div class="um-input-group">
-						<label for="icCount">IC卡数量：</label>
-						<input type="text" class="form-control" id="icCount">
-					</div>
+					<ul class="um-list">
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<div class="um-list-item-left">
+									IC卡读写器数量：
+								</div>
+								<div class="um-list-item-right">
+									<input type="text" class="form-control tr" id="icRwCount"
+									placeholder="请输入IC卡读写器数量(必填)" value="2">
+								</div>
+							</div>
+						</li>
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<div class="um-list-item-left">
+									IC卡数量：
+								</div>
+								<div class="um-list-item-right">
+									<input type="text" class="form-control tr" id="icCount"
+									placeholder="请输入IC卡数量(必填)" value="200">
+								</div>
+							</div>
+
+						</li>
+					</ul>
 				</div>
 			</div>
-			
+
 			<div class="um-footer">
 				<div class="btn-group btn-group-justify">
 					<button type="button" class="btn" onclick="pre()">
@@ -51,5 +68,5 @@
 				</div>
 			</div>
 		</div>
-	</body>	
+	</body>
 </html>

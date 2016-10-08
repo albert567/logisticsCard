@@ -7,14 +7,14 @@ summerready = function() {
 	index = summer.pageParam.index;
 	factoryCount = summer.pageParam.factoryCount;
 	checkboxs = $(".um-check-group").find("input:checkbox");
-	checkboxs.on("change", function() {
+	/*checkboxs.on("change", function() {
 		if (this.checked) {
 			if (this.id == "ck_a") {
 				$summer.byId("icRwCount").value = 2;
 				$summer.byId("icCount").value = 200;
 			}
 		}
-	});
+	});*/
 	updateH3();
 	if (!!(localStorage.getItem("qualityHardware"))) {
 		allQuas = JSON.parse(localStorage.getItem("qualityHardware"));

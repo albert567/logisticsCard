@@ -14,28 +14,27 @@
 	</head>
 	<body>
 		<div class="um-page" id="main">
-			<div id="header" class="um-header">
-			</div>
+			<div id="header" class="um-header"></div>
 			<div id="content" class="um-content p15 m20">
 				<div class="um-box">
-					<button type="button" class="btn" onclick="info()">
+					<button type="button" class="btn" id="btn_info" onclick="info()">
 						基本信息维护
 					</button>
 					<div class="btn-group">
-						<button type="button" class="btn btn-inline" onclick="simple()">
+						<button type="button" class="btn btn-inline" id="btn_a" onclick="simple()">
 							A:计量一卡通（简单）
 						</button>
-						<button type="button" class="btn btn-inline" onclick="common()">
+						<button type="button"  class="btn btn-inline" id="btn_b" onclick="common()">
 							B:无人值守（一般）
 						</button>
-						<button type="button" class="btn btn-inline" onclick="intel()">
+						<button type="button" class="btn btn-inline" id="btn_c" onclick="intel()">
 							C:智能工厂（全面）
 						</button>
-						<button type="button" class="btn btn-inline" onclick="custom()">
+						<button type="button" class="btn btn-inline" id="btn_d" onclick="custom()">
 							D:自定义配置
 						</button>
 					</div>
-					<button type="button" class="btn" onclick="back()">
+					<button type="button" class="btn" id="btn_back" onclick="back()">
 						返回
 					</button>
 				</div>

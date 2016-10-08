@@ -10,7 +10,7 @@
 		<script src="../js/summer.js" ></script>
 		<script src="../js/jquery-2.1.4.min.js" ></script>
 		<script src="../js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
-		<script src="../js/pricePreviewFrame.js"></script>
+		<script src="../js/pricePreview.js"></script>
 		<style type="text/css">
 			table.gridtable {
 				font-family: verdana, arial, sans-serif;
@@ -40,25 +40,22 @@
 		<div class="um-page" id="main">
 
 			<div id="content" class="um-content p15">
-				<button class="btn" style="width: 200px" onclick="excel()">
-					导出Excel
-				</button>
 				<table id="table1" class="gridtable">
+					<tr>
+						<th colspan="6">用友物流一卡通系统报价单</th>
+					</tr>
 					<tr>
 						<th></th>
 						<th></th>
 						<th>软件折扣</th>
 						<th></th>
 						<th colspan="2">天瑞郑州水泥有限公司</th>
-						<th colspan="2">卫辉天瑞水泥有限公司</th>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td>0.5</td>
+						<td id="softDiscount">0.5</td>
 						<td>单价</td>
-						<td>数量</td>
-						<td>报价</td>
 						<td>数量</td>
 						<td>报价</td>
 					</tr>
@@ -67,20 +64,16 @@
 						<td rowspan="3">UAP</td>
 						<td>数据交换平台</td>
 						<td>16</td>
-						<td colspan="4">16</td>
+						<td colspan="2">16</td>
 					</tr>
 					<tr>
 						<td >动态建模平台</td>
 						<td >0</td>
 						<td >1</td>
 						<td >0</td>
-						<td >1</td>
-						<td >0</td>
 					</tr>
 					<tr>
 						<td >自由报表</td>
-						<td >8</td>
-						<td >1</td>
 						<td >8</td>
 						<td >1</td>
 						<td >8</td>
@@ -91,24 +84,18 @@
 						<td >0</td>
 						<td >1</td>
 						<td >0</td>
-						<td >1</td>
-						<td >0</td>
 					</tr>
 					<tr>
 						<td >计量衡器数</td>
 						<td >10</td>
-						<td >4</td>
-						<td >40</td>
-						<td >4</td>
-						<td >40</td>
+						<td id="weightCount">0</td>
+						<td id="weightCountN">0</td>
 					</tr>
 					<tr>
 						<td >无人值守衡器数</td>
 						<td >10</td>
-						<td >4</td>
-						<td >40</td>
-						<td >4</td>
-						<td >40</td>
+						<td id="noDutyMonitors">0</td>
+						<td id="noDutyMonitorsN">0</td>
 					</tr>
 					<tr>
 						<td></td>
@@ -116,8 +103,6 @@
 						<td ></td>
 						<td ></td>
 						<td ></td>
-						<td ></td>
-						<td >88</td>
 					</tr>
 					<tr>
 						<td></td>
@@ -125,8 +110,6 @@
 						<td ></td>
 						<td ></td>
 						<td ></td>
-						<td ></td>
-						<td >192</td>
 					</tr>
 					<tr>
 						<td></td>
@@ -134,187 +117,74 @@
 						<td ></td>
 						<td ></td>
 						<td ></td>
-						<td ></td>
-						<td >96</td>
 					</tr>
 					<tr>
-						<td rowspan="24">硬件部分</td>
-						<td rowspan="6">门岗</td>
-						<td >道闸控制及防砸系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td rowspan="14">硬件部分</td>
+						<td>开单室</td>
+						<td >发卡器</td>
+						<td >0.05</td>
+						<td id="ticketCount">3</td>
+						<td id="ticketCountN">0.15</td>
 					</tr>
 					<tr>
-						<td >语音提示与对讲系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >厂外排队LED显示+语音</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >门岗视频监控</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >收卡机</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td rowspan="4">门岗</td>
+						<td >门岗自助控制系统</td>
+						<td >0.5</td>
+						<td id="doorA">2</td>
+						<td id="doorAN">1</td>
 					</tr>
 					<tr>
 						<td >计量单打印终端</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td rowspan="3">地磅</td>
-						<td >无人值守系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >视频监控</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >红外检测系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td rowspan="3">放料口</td>
-						<td >散装控制系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >车号识别(RFID)</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >视频监控</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td rowspan="7">包装栈台</td>
-						<td >计数器系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >装车道口刷卡器</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >喷码机系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >装车道口自动切换系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >装车道口LED排队</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td >装车过程视频监控</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td>0.3</td>
+						<td id="doorB">2</td>
+						<td id="doorBN">0.6</td>
 					</tr>
 					<tr>
 						<td >语音提示与对讲系统</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td>0.4</td>
+						<td id="doorC">2</td>
+						<td id="doorCN">0.8</td>
 					</tr>
 					<tr>
-						<td rowspan="3">监控室</td>
-						<td>电视墙</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td >门岗视频监控</td>
+						<td >0.4</td>
+						<td id="doorD">2</td>
+						<td id="doorDN">0.8</td>
 					</tr>
 					<tr>
+						<td rowspan="4">计量室</td>
+						<td >无人值守系统</td>
+						<td >5</td>
+						<td id="weightA">4</td>
+						<td id="weightAN">20</td>
+					</tr>
+					<tr>
+						<td >红外检测系统</td>
+						<td>0.05</td>
+						<td id="weightB">2</td>
+						<td id="weightBN">0.1</td>
+					</tr>
+					<tr>
+						<td >视频监控</td>
+						<td>0.4</td>
+						<td id="weightC">4</td>
+						<td id="weightCN">1.6</td>
+					</tr>
+					<tr>
+						<td >IC卡读写器</td>
+						<td>0.4</td>
+						<td id="weightD">4</td>
+						<td id="weightDN">1.6</td>
+					</tr>
+					<tr>
+						<td rowspan="2">监控室</td>
 						<td>语音对讲中控主机</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td>0.5</td>
+						<td id="monitorA">2</td>
+						<td id="monitorAN">1</td>
 					</tr>
 					<tr>
 						<td>监控电脑（自备）</td>
-						<td>0</td>
-						<td>0</td>
 						<td>0</td>
 						<td>0</td>
 						<td>0</td>
@@ -322,30 +192,31 @@
 					<tr>
 						<td>手持收料</td>
 						<td>手持终端</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td>0.4</td>
+						<td id="material">2</td>
+						<td id="materialN">0.8</td>
 					</tr>
 					<tr>
-						<td>质检加密</td>
-						<td>手持终端+IC卡读写器+IC卡</td>
-						<td>2</td>
-						<td>2</td>
-						<td>4</td>
-						<td>2</td>
-						<td>4</td>
+						<td rowspan="2">质检加密</td>
+						<td>手持终端</td>
+						<td>0.4</td>
+						<td id="quaHardware">2</td>
+						<td id="quaHardwareN">0.8</td>
 					</tr>
+					<tr>
+						<td>IC卡</td>
+						<td>0.0005</td>
+						<td id="icCount">200</td>
+						<td id="icCountN">0.1</td>
+					</tr>
+					<tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td>硬件小计</td>
-						<td>2</td>
-						<td>2</td>
-						<td>92</td>
-						<td>2</td>
-						<td>92</td>
+						<td></td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td></td>
@@ -354,8 +225,6 @@
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td>184</td>
 					</tr>
 					<tr>
 						<td></td>
@@ -364,8 +233,6 @@
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td>280</td>
 					</tr>
 				</table>
 			</div>

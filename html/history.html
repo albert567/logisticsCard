@@ -7,8 +7,6 @@
 		<link rel="stylesheet" href="../css/iuapmobile.um.css">
 		<link rel="stylesheet" href="../css/font-icons.css">
 		<link rel="stylesheet" type="text/css" href="../css/iuapmobile.um.listview.css">
-		<link rel="stylesheet" type="text/css" href="../css/iuapmobile.um.listview.css">
-
 		<style>
 			.msg-info {
 				position: relative;
@@ -77,12 +75,12 @@
 			<div id="header" class="um-header">
 				<h3 id="hh">历史数据</h3>
 			</div>
-			<div id="content" class="um-content p15">
-				<div class="um-input-group">
+			<div id="content" class="um-content">
+				<div class="um-input-group" style="position:absolute;z-index: 100">
 					<span class="btn ti-search" onclick="search()"></span>
 					<input type="search" class="form-control" id="search" placeholder="搜索">
 				</div>
-				<div class="um-listview-wrap" id="listview">
+				<div class="um-listview-wrap mt40" id="listview">
 					<ul class="um-list um-no-active" data-bind="foreach: data">
 						<li class="um-listview-row">
 							<a href="#" class="um-list-item um-swipe-action um-no-icon">
@@ -115,7 +113,6 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 
 		</div>

@@ -57,7 +57,7 @@ function valueToArray() {
 		factories[index - 1].nod_monitors = $summer.byId("noDutyMonitors").value;
 		obj = factories[index - 1];
 		//更新数据到数据库
-		$.post("http://192.168.43.214/factory/update", 
+		$.post("http://zhangyph-pc/factory/update", 
 			{
 				fac_name:obj.fac_name,
 				item_inout:obj.item_inout,
@@ -66,7 +66,7 @@ function valueToArray() {
 				met_count:obj.met_count,
 				is_noduty:obj.is_noduty,
 				nod_monitors:obj.nod_monitors,
-				base_id:obj.base_id,
+				base_id:baseId,
 				fa_index:index,
 				id:obj.id
 			},
@@ -92,7 +92,7 @@ function valueToArray() {
 		obj.base_id = baseId;
 		
 		//保存数据到数据库JSON.stringify(obj)
-		$.post("http://192.168.43.214/factory/save", 
+		$.post("http://zhangyph-pc/factory/save", 
 			{
 				fac_name:obj.fac_name,
 				item_inout:obj.item_inout,
@@ -101,7 +101,7 @@ function valueToArray() {
 				met_count:obj.met_count,
 				is_noduty:obj.is_noduty,
 				nod_monitors:obj.nod_monitors,
-				base_id:obj.base_id,
+				base_id:baseId,
 				fa_index:index
 			},
 			function(data) {

@@ -13,7 +13,6 @@ summerready = function() {
 	//工厂信息数组
 	if (localStorage.getItem("factories")!=null) {
 		var factories = JSON.parse(localStorage.getItem("factories"));
-		
 		//门岗
 		itemInOut = factories[index - 1].item_inout;
 	}
@@ -112,9 +111,7 @@ function next() {
 		}
 	} else {
 		doorCount--;
-		//alert("allDoors1="+JSON.stringify(allDoors));
 		allDoors[index - 1] = doors;
-		//alert("allDoors2="+JSON.stringify(allDoors));
 		localStorage.setItem("doorHardware", JSON.stringify(allDoors));
 		summer.openWin({
 			id : 'weightHardware',

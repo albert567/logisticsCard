@@ -15,15 +15,26 @@ function updateH3() {
 
 //报价生成
 function priceGenerate() {
-	alert("报价生成");
+	UM.modal("alert", {
+		title : window.location.host || "",
+		text : "报价生成",
+		overlay : true,
+		ok : function(data) {
+		},
+		delay : 300, //Number
+		callback : null
+	});
 }
 
 //报价预览
 function pricePreview() {
-	alert("报价预览");
 	summer.openWin({
 		id : 'pricePreview',
 		url : 'html/pricePreview.html',
+		pageParam : {
+			index : index,
+			factoryCount : factoryCount
+		}
 	});
 }
 
@@ -42,9 +53,7 @@ function pre() {
 
 //
 function next() {
-	if (index < factoryCount) {
-		alert("下一家维护");
-		++index;
+	if (index < factoryCount) {++index;
 		summer.openWin({
 			id : 'ticket',
 			url : 'html/ticket.html',
@@ -54,27 +63,33 @@ function next() {
 			}
 		});
 	} else {
-		alert("维护完成");
-		localStorage.clear();
-		//保存数据到数据库JSON.stringify(obj)
-		$.post("http://192.168.43.214/factory/saveOther", 
-			{
-				base_id:baseId,
-				fa_index:index,
-				tic_hardware:localStorage.getItem("ticketHardware"),
-				mon_hardware:localStorage.getItem("monitorHardware"),
-				qua_hardware:localStorage.getItem("qualityHardware"),
-				mat_hardware:localStorage.getItem("materialHardware"),
-				door_hardware:localStorage.getItem("doorHardware"),
-				wei_hardware:localStorage.getItem("weightHardware")
+		UM.modal("alert", {
+			title : window.location.host || "",
+			text : "维护完成",
+			overlay : true,
+			ok : function(data) {
+				//保存数据到数据库JSON.stringify(obj)
+				$.post("http://zhangyph-pc/factory/saveOther", {
+					base_id : baseId,
+					fa_index : index,
+					tic_hardware : localStorage.getItem("ticketHardware"),
+					mon_hardware : localStorage.getItem("monitorHardware"),
+					qua_hardware : localStorage.getItem("qualityHardware"),
+					mat_hardware : localStorage.getItem("materialHardware"),
+					door_hardware : localStorage.getItem("doorHardware"),
+					wei_hardware : localStorage.getItem("weightHardware")
+				}, function(data) {
+					//alert("数据保存成功：" + data);
+				});
+				summer.openWin({
+					id : 'finish',
+					url : 'html/finish.html'
+				});
 			},
-			function(data) {
-			//alert("数据保存成功：" + data);
+			delay : 300, //Number
+			callback : null
 		});
-		summer.openWin({
-			id : 'finish',
-			url : 'html/finish.html'
-		});
+
 	}
 	summer.closeWin("subFinish");
 }
